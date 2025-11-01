@@ -8,3 +8,10 @@ ${campo_pesquisa}      id=twotabsearchtextbox
 ${botao_pesquisa}      xpath=//*[@id="nav-search-submit-button"]
 ${console}             xpath=(//span[contains(text(),'controle xbox series s')])[1]
 ${titulo_esperado}     xpath=(//*[@id="0"]/div/div/h2/span)[1]
+${CONTROLE_SEM_FIO_XBOX}   xpath=//span[contains(text(),'CONTROLE SEM FIO XBOX - REMIX EDICAO ESPECIAL')] 
+${cart-button}             xpath=//*[@id="add-to-cart-button"] 
+${btn_carrinho}            xpath=//*[@id="attachSiNoCoverage"]/span/input
+${Console_Xbox_Series_S}    xpath=//*[@id="sc-active-items-header"]
+${carrinho}                xpath=//*[@id="nav-cart-text-container"]/span[2]
+${remover_carrinho}        xpath=//input[@value='Excluir']
+${carrinho_vazio}          xpath=//*[@id="nav-cart-count"]
