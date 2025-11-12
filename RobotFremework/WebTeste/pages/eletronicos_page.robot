@@ -13,5 +13,5 @@ E vejo a frase "${frase}"
     Page Should Contain         ${frase}
 
 Então vejo a categoria "${categoria}"
-    Wait Until Element Is Visible    xpath=//span[contains(text(),'${categoria}')]   20s
+    Wait Until Element Is Visible    xpath=//span[contains(text(),'${categoria}')]    20s
     Element Should Be Visible        xpath=//span[contains(text(),'${categoria}')]

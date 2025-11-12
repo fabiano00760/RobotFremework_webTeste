@@ -1,356 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.14.0 on win32)" generated="2025-11-01T04:49:03.073703" rpa="false" schemaversion="5">
-<suite id="s1" name="Amazon Tests" source="F:\RobotFremework_webTeste\RobotFremework\WebTeste\tests\amazon_tests.robot">
-<kw name="Abrir o navegador" owner="base_keywords" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:03.325093" level="INFO">Opening browser 'Chrome' to base url 'https://www.amazon.com.br'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-11-01T04:49:03.324828" elapsed="2.888118"/>
+<robot generator="Robot 7.3.2 (Python 3.14.0 on win32)" generated="2025-11-03T00:59:02.684190" rpa="false" schemaversion="5">
+<suite id="s1" name="APP Teste User" source="F:\RobotFremework_webTeste\RobotFremework\Teste_APP\tests\APP_Teste_User.robot">
+<test id="s1-t1" name="Email com Domínio Personalizado" line="11">
+<kw name="FakerLibrary.first_name">
+<msg time="2025-11-03T00:59:02.720264" level="FAIL">No keyword with name 'FakerLibrary.first_name' found.</msg>
+<var>${nome}</var>
+<status status="FAIL" start="2025-11-03T00:59:02.720216" elapsed="0.000111">No keyword with name 'FakerLibrary.first_name' found.</status>
 </kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-11-01T04:49:06.213335" elapsed="0.073329"/>
+<kw name="FakerLibrary.last_name">
+<var>${sobrenome}</var>
+<status status="NOT RUN" start="2025-11-03T00:59:02.720549" elapsed="0.000026"/>
 </kw>
-<status status="PASS" start="2025-11-01T04:49:03.324133" elapsed="2.962731"/>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${email}</var>
+<arg>${nome}.${sobrenome}@meudominio.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-11-03T00:59:02.720725" elapsed="0.000023"/>
 </kw>
-<test id="s1-t1" name="Caso de teste 01 - acesso ao menu &quot;eletrônicos&quot;" line="8">
-<kw name="Dado que acesso a home page do site amazon.com.br" owner="home_page">
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:06.288574" level="INFO">Opening url 'https://www.amazon.com.br'</msg>
-<arg>${URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-11-01T04:49:06.288419" elapsed="1.973176"/>
+<kw name="Log" owner="BuiltIn">
+<arg>E-mail: ${email}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-11-03T00:59:02.720884" elapsed="0.000021"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${menu_eletronicos}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:08.261867" elapsed="0.147330"/>
-</kw>
-<status status="PASS" start="2025-11-01T04:49:06.288068" elapsed="2.121340"/>
-</kw>
-<kw name="E entro no menu &quot;eletrônicos&quot;" owner="home_page" source_name="E entro no menu &quot;${menu}&quot;">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:08.410730" level="INFO">Clicking element '//a[@data-csa-c-content-id="nav_cs_electronics"]'.</msg>
-<arg>${menu_eletronicos}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-01T04:49:08.410472" elapsed="1.992010"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-11-01T04:49:12.403316" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-11-01T04:49:10.402760" elapsed="2.000694"/>
-</kw>
-<status status="PASS" start="2025-11-01T04:49:08.410062" elapsed="3.993508"/>
-</kw>
-<kw name="Quando verifico que o título da página é &quot;Eletrônicos e Tecnologia&quot;" owner="eletronicos_page" source_name="Quando verifico que o título da página é &quot;${titulo}&quot;">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${titulo_eletronicos}</arg>
-<arg>15s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:12.404470" elapsed="0.024834"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:12.447731" level="INFO">${texto} = Eletrônicos e Tecnologia</msg>
-<var>${texto}</var>
-<arg>${titulo_eletronicos}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-01T04:49:12.429535" elapsed="0.018244"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${texto}</arg>
-<arg>${titulo}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-11-01T04:49:12.447976" elapsed="0.000222"/>
-</kw>
-<status status="PASS" start="2025-11-01T04:49:12.404107" elapsed="0.044170"/>
-</kw>
-<kw name="E vejo a frase &quot;Eletrônicos e Tecnologia&quot;" owner="eletronicos_page" source_name="E vejo a frase &quot;${frase}&quot;">
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${frase}</arg>
-<arg>10s</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-11-01T04:49:12.448983" elapsed="0.024268"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:12.496571" level="INFO">Current page contains text 'Eletrônicos e Tecnologia'.</msg>
-<arg>${frase}</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-11-01T04:49:12.473535" elapsed="0.023140"/>
-</kw>
-<status status="PASS" start="2025-11-01T04:49:12.448670" elapsed="0.048112"/>
-</kw>
-<kw name="Então vejo a categoria &quot;Computadores e Informática&quot;" owner="eletronicos_page" source_name="Então vejo a categoria &quot;${categoria}&quot;">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//span[contains(text(),'${categoria}')]</arg>
-<arg>20s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:12.497573" elapsed="0.015923"/>
-</kw>
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:12.526803" level="INFO">Element 'xpath=//span[contains(text(),'Computadores e Informática')]' is displayed.</msg>
-<arg>xpath=//span[contains(text(),'${categoria}')]</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:12.513719" elapsed="0.013163"/>
-</kw>
-<status status="PASS" start="2025-11-01T04:49:12.497239" elapsed="0.029730"/>
-</kw>
-<doc>Verifica o menu eletrônicos das categorias do site Amazon.com.br</doc>
-<tag>menus_eletronicos</tag>
-<tag>smoke</tag>
-<status status="PASS" start="2025-11-01T04:49:06.287003" elapsed="6.240280"/>
+<status status="FAIL" start="2025-11-03T00:59:02.718618" elapsed="0.002466">No keyword with name 'FakerLibrary.first_name' found.</status>
 </test>
-<test id="s1-t2" name="Caso de teste 02 - pesquisa de produtos" line="17">
-<kw name="E digito o nome do produto &quot;Xbox Series S&quot; no campo de pesquisa" owner="pesquisa_page" source_name="E digito o nome do produto &quot;${produto}&quot; no campo de pesquisa">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:12.529468" level="INFO">Typing text 'Xbox Series S' into text field 'id=twotabsearchtextbox'.</msg>
-<arg>${campo_pesquisa}</arg>
-<arg>${produto}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-01T04:49:12.529226" elapsed="0.115379"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-11-01T04:49:14.645362" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-11-01T04:49:12.644847" elapsed="2.000654"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:14.852032" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-11-01T04:49:14.645759" elapsed="0.206384"/>
-</kw>
-<status status="PASS" start="2025-11-01T04:49:12.528827" elapsed="2.323415"/>
-</kw>
-<kw name="Quando clico no botão de pesquisa" owner="pesquisa_page">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:14.853281" level="INFO">Clicking button 'xpath=//*[@id="nav-search-submit-button"]'.</msg>
-<arg>${botao_pesquisa}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-01T04:49:14.853063" elapsed="0.733345"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-11-01T04:49:17.587238" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-11-01T04:49:15.586639" elapsed="2.000731"/>
-</kw>
-<status status="PASS" start="2025-11-01T04:49:14.852736" elapsed="2.734748"/>
-</kw>
-<kw name="Então vejo o produto &quot;Xbox Series S&quot; nos resultados da pesquisa" owner="pesquisa_page" source_name="Então vejo o produto &quot;${produto}&quot; nos resultados da pesquisa">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//span[contains(text(),'${produto}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:17.588385" elapsed="0.018997"/>
-</kw>
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:17.620903" level="INFO">Element 'xpath=//span[contains(text(),'Xbox Series S')]' is displayed.</msg>
-<arg>xpath=//span[contains(text(),'${produto}')]</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:17.607623" elapsed="0.013387"/>
-</kw>
-<status status="PASS" start="2025-11-01T04:49:17.587991" elapsed="0.033122"/>
-</kw>
-<doc>Verifica a funcionalidade de pesquisa de um produto no site Amazon.com.br</doc>
-<tag>pesquisa_produtos</tag>
-<tag>smoke</tag>
-<status status="PASS" start="2025-11-01T04:49:12.527921" elapsed="5.093550"/>
-</test>
-<test id="s1-t3" name="Caso de teste 03 - adicionar produto no carrinho" line="24">
-<kw name="Quando adicionar o produto &quot;Console Xbox Series S&quot; no carrinho" owner="carrinho_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:17.623337" level="INFO">Typing text 'Console Xbox Series S' into text field 'id=twotabsearchtextbox'.</msg>
-<arg>${campo_pesquisa}</arg>
-<arg>Console Xbox Series S</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-01T04:49:17.623109" elapsed="0.149888"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:17.773475" level="INFO">Clicking button 'xpath=//*[@id="nav-search-submit-button"]'.</msg>
-<arg>${botao_pesquisa}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-01T04:49:17.773232" elapsed="1.976178"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${console}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:19.749665" elapsed="0.016632"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${CONTROLE_SEM_FIO_XBOX}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:19.766596" elapsed="0.018685"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${CONTROLE_SEM_FIO_XBOX}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-11-01T04:49:19.785536" elapsed="0.296792"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:20.082853" level="INFO">Clicking element 'xpath=//span[contains(text(),'CONTROLE SEM FIO XBOX - REMIX EDICAO ESPECIAL')]'.</msg>
-<arg>${CONTROLE_SEM_FIO_XBOX}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-01T04:49:20.082599" elapsed="2.114386"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${cart-button}</arg>
-<arg>1s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:22.197297" elapsed="0.046480"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:22.244263" level="INFO">Clicking element 'xpath=//*[@id="add-to-cart-button"]'.</msg>
-<arg>${cart-button}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-01T04:49:22.244019" elapsed="0.205582"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${btn_carrinho}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:22.449843" elapsed="0.499652"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${btn_carrinho}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-11-01T04:49:22.949752" elapsed="0.278667"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:23.228906" level="INFO">Clicking button 'xpath=//*[@id="attachSiNoCoverage"]/span/input'.</msg>
-<arg>${btn_carrinho}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-01T04:49:23.228660" elapsed="0.097425"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-11-01T04:49:28.326791" level="INFO">Slept 5 seconds.</msg>
-<arg>5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-11-01T04:49:23.326325" elapsed="5.000604"/>
-</kw>
-<status status="PASS" start="2025-11-01T04:49:17.622805" elapsed="10.704237"/>
-</kw>
-<kw name="Então o produto &quot;Console Xbox Series S&quot; deve ser mostrado no carrinho" owner="carrinho_page">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${carrinho}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:28.327889" elapsed="0.019742"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:28.348208" level="INFO">Clicking element 'xpath=//*[@id="nav-cart-text-container"]/span[2]'.</msg>
-<arg>${carrinho}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-01T04:49:28.347880" elapsed="1.010077"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${Console_Xbox_Series_S}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:29.358212" elapsed="0.028634"/>
-</kw>
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:29.397928" level="INFO">Element 'xpath=//*[@id="sc-active-items-header"]' is displayed.</msg>
-<arg>${Console_Xbox_Series_S}</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:29.387151" elapsed="0.010880"/>
-</kw>
-<status status="PASS" start="2025-11-01T04:49:28.327559" elapsed="1.070576"/>
-</kw>
-<doc>Verifica a adição de um produto no carrinho de compras</doc>
-<tag>adicionar_carrinho</tag>
-<status status="PASS" start="2025-11-01T04:49:17.622051" elapsed="11.776364"/>
-</test>
-<test id="s1-t4" name="Caso de teste 04 - remover produto do carrinho" line="30">
-<kw name="E existe o produto &quot;Console Xbox Series S&quot; no carrinho" owner="carrinho_page">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${Console_Xbox_Series_S}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:29.399753" elapsed="0.010285"/>
-</kw>
-<kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:29.426161" level="INFO">Element 'xpath=//*[@id="sc-active-items-header"]' is displayed.</msg>
-<arg>${Console_Xbox_Series_S}</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:29.410183" elapsed="0.016091"/>
-</kw>
-<status status="PASS" start="2025-11-01T04:49:29.399492" elapsed="0.026886"/>
-</kw>
-<kw name="Quando remover o produto &quot;Console Xbox Series S&quot; do carrinho" owner="carrinho_page">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${remover_carrinho}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:29.426981" elapsed="0.016356"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:29.443784" level="INFO">Clicking element 'xpath=//input[@value='Excluir']'.</msg>
-<arg>${remover_carrinho}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-01T04:49:29.443558" elapsed="0.101461"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-11-01T04:49:34.545738" level="INFO">Slept 5 seconds.</msg>
-<arg>5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-11-01T04:49:29.545264" elapsed="5.000603"/>
-</kw>
-<status status="PASS" start="2025-11-01T04:49:29.426698" elapsed="5.119311"/>
-</kw>
-<kw name="Então o carrinho deve ficar vazio" owner="carrinho_page">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${carrinho_vazio}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-01T04:49:34.546825" elapsed="0.017957"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:34.600091" level="INFO">${quantidade} = 0</msg>
-<var>${quantidade}</var>
-<arg>${carrinho_vazio}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-01T04:49:34.565008" elapsed="0.035135"/>
-</kw>
-<kw name="Should Be Equal As Integers" owner="BuiltIn">
-<arg>${quantidade}</arg>
-<arg>0</arg>
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2025-11-01T04:49:34.600360" elapsed="0.000220"/>
-</kw>
-<status status="PASS" start="2025-11-01T04:49:34.546502" elapsed="0.054158"/>
-</kw>
-<doc>Verifica a remoção de um produto no carrinho</doc>
-<tag>remover_carrinho</tag>
-<status status="PASS" start="2025-11-01T04:49:29.398955" elapsed="5.202045"/>
-</test>
-<kw name="Fechar o navegador" owner="base_keywords" type="TEARDOWN">
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-11-01T04:49:34.753886" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-11-01T04:49:34.602051" elapsed="0.151946"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-11-01T04:49:34.754195" elapsed="2.232185"/>
-</kw>
-<status status="PASS" start="2025-11-01T04:49:34.601842" elapsed="2.384680"/>
-</kw>
-<doc>Testes automatizados para o site Amazon.com.br utilizando Robot Framework e Page Object</doc>
-<status status="PASS" start="2025-11-01T04:49:03.075159" elapsed="33.911411"/>
+<status status="FAIL" start="2025-11-03T00:59:02.685743" elapsed="0.035995"/>
 </suite>
 <statistics>
 <total>
-<stat pass="4" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">adicionar_carrinho</stat>
-<stat pass="1" fail="0" skip="0">menus_eletronicos</stat>
-<stat pass="1" fail="0" skip="0">pesquisa_produtos</stat>
-<stat pass="1" fail="0" skip="0">remover_carrinho</stat>
-<stat pass="2" fail="0" skip="0">smoke</stat>
 </tag>
 <suite>
-<stat name="Amazon Tests" id="s1" pass="4" fail="0" skip="0">Amazon Tests</stat>
+<stat name="APP Teste User" id="s1" pass="0" fail="1" skip="0">APP Teste User</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-11-03T00:59:02.679523" level="ERROR">Error in file 'F:\RobotFremework_webTeste\RobotFremework\Teste_APP\tests\APP_Teste_User.robot' on line 4: Unrecognized section header '*** Libraries ***'. Valid sections: 'Settings', 'Variables', 'Test Cases', 'Tasks', 'Keywords' and 'Comments'.</msg>
+<msg time="2025-11-03T00:59:02.717636" level="ERROR">Error in file 'F:\RobotFremework_webTeste\RobotFremework\Teste_APP\tests\APP_Teste_User.robot' on line 3: Resource file 'F:RobotFremework_webTesteRobotFremeworkTeste_APPesource' does not exist.</msg>
 </errors>
 </robot>
